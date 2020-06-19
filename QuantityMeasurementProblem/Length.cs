@@ -2,12 +2,16 @@
 
 namespace QuantityMeasurementProblem
 {
-    public class Feet
+    public class Length
     {
+        public enum Unit { FEET, INCH}
+
+        private Unit unit;
         private double value;
 
-        public Feet(double value)
+        public Length(Unit unit,double value)
         {
+            this.unit = unit;
             this.value = value;
         }
 
@@ -25,8 +29,8 @@ namespace QuantityMeasurementProblem
                 return false;
             }
 
-            Feet feet = (Feet)o;
-            return value.CompareTo(feet.value) == 0;
+            Length length = (Length)o;
+            return value.CompareTo(length.value) == 0 & unit == length.unit;
         }
 
         public override int GetHashCode()

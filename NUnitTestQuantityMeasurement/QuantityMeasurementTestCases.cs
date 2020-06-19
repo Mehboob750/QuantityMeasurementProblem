@@ -16,24 +16,24 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0FeetAnd0Feet_ShouldReturnsEqual()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(0.0);
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = new Length(Length.Unit.FEET, 0.0);
             Assert.AreEqual(firstFeet,secondFeet);
         }
 
         [Test]
         public void Given0FeetAndNull_ShouldReturnsNotEqual()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = null;
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = null;
             Assert.AreNotEqual(firstFeet,secondFeet);
         }
 
         [Test]
         public void GivenTwoObjects_WhenCheckReference_ShouldReturnFalse()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(0.0);
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = new Length(Length.Unit.FEET, 0.0);
             bool areEqual = System.Object.ReferenceEquals(firstFeet, secondFeet);
             Assert.IsFalse(areEqual);
         }
@@ -41,8 +41,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = firstFeet;
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = firstFeet;
             bool areEqual = System.Object.ReferenceEquals(firstFeet, secondFeet);
             Assert.IsTrue(areEqual);
         }
@@ -50,40 +50,40 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenTypeChecked_ShouldReturnEqual()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(3.0);
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = new Length(Length.Unit.FEET, 3.0);
             Assert.AreEqual(firstFeet.GetType(), secondFeet.GetType());
         }
 
         [Test]
         public void Given0FeetAnd1Feet_WhenValueChecked_ShouldReturnNotEqual()
         {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(1.0);
+            Length firstFeet = new Length(Length.Unit.FEET, 0.0);
+            Length secondFeet = new Length(Length.Unit.FEET, 1.0);
             Assert.AreNotEqual(firstFeet, secondFeet);
         }
 
         [Test]
         public void Given0InchAnd0Inch_WhenValueChecked_ShouldReturnEqual()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = new Inch(0.0);
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = new Length(Length.Unit.INCH, 0.0);
             Assert.AreEqual(firstInch, secondInch);
         }
 
         [Test]
         public void Given0InchAndNull_ShouldReturnsNotEqual()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = null;
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = null;
             Assert.AreNotEqual(firstInch, secondInch);
         }
 
         [Test]
         public void GivenTwoObjectsOfInch_WhenCheckReference_ShouldReturnFalse()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = new Inch(0.0);
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = new Length(Length.Unit.INCH, 0.0);
             bool areEqual = System.Object.ReferenceEquals(firstInch, secondInch);
             Assert.IsFalse(areEqual);
         }
@@ -91,8 +91,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjectsOfInch_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = firstInch;
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = firstInch;
             bool areEqual = System.Object.ReferenceEquals(firstInch, secondInch);
             Assert.IsTrue(areEqual);
         }
@@ -100,17 +100,25 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjectsOfInch_WhenTypeChecked_ShouldReturnEqual()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = new Inch(3.0);
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = new Length(Length.Unit.INCH, 3.0);
             Assert.AreEqual(firstInch.GetType(), secondInch.GetType());
         }
 
         [Test]
         public void Given0InchAnd1Inch_WhenValueChecked_ShouldReturnNotEqual()
         {
-            Inch firstInch = new Inch(0.0);
-            Inch secondInch = new Inch(1.0);
+            Length firstInch = new Length(Length.Unit.INCH, 0.0);
+            Length secondInch = new Length(Length.Unit.INCH, 1.0);
             Assert.AreNotEqual(firstInch, secondInch);
+        }
+
+        [Test]
+        public void Given1FeetAnd1Inch_WhenValueChecked_ShouldReturnNotEqual()
+        {
+            Length firstFeet = new Length(Length.Unit.FEET, 1.0);
+            Length firstInch = new Length(Length.Unit.INCH, 1.0);
+            Assert.AreNotEqual(firstFeet, firstInch);
         }
     }
 }
