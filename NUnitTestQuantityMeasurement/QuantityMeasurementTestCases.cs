@@ -166,13 +166,21 @@ namespace NUnitTestQuantityMeasurement
             Assert.IsTrue(compareCheck);
         }
 
-
         [Test]
         public void Given12InchAnd1Feet_WhenComparingLength_ShouldReturnEqualLength()
         {
             Length inchValue = new Length(Length.Unit.INCH, 12.0);
             Length feetValue = new Length(Length.Unit.FEET, 1.0);
             bool compareCheck = inchValue.Compare(feetValue);
+            Assert.IsTrue(compareCheck);
+        }
+
+        [Test]
+        public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length firstYardValue = new Length(Length.Unit.YARD, 1.0);
+            Length secondYardValue = new Length(Length.Unit.YARD, 1.0);
+            bool compareCheck = firstYardValue.Compare(secondYardValue);
             Assert.IsTrue(compareCheck);
         }
     }
