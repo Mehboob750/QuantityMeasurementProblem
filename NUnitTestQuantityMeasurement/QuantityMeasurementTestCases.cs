@@ -228,5 +228,14 @@ namespace NUnitTestQuantityMeasurement
             bool compareCheck = inchValue.Compare(yardValue);
             Assert.IsTrue(compareCheck);
         }
+
+        [Test]
+        public void Given1YardAnd3Feet_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length yardValue = new Length(Length.Unit.YARD, 1.0);
+            Length feetValue = new Length(Length.Unit.FEET, 3.0);
+            bool compareCheck = yardValue.Compare(feetValue);
+            Assert.IsTrue(compareCheck);
+        }
     }
 }
