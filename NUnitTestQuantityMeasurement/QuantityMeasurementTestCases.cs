@@ -140,6 +140,15 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
+        public void Given1FeetAnd1Feet_WhenComapringLength_ShouldReturnEqualLength()
+        {
+            Length firstFeetValue = new Length(Length.Unit.FEET, 1.0);
+            Length secondFeetValue = new Length(Length.Unit.FEET, 1.0);
+            bool compareCheck = firstFeetValue.Compare(secondFeetValue);
+            Assert.IsTrue(compareCheck);
+        }
+
+        [Test]
         public void Given1InchAnd1Feet_WhenComparingLength_ShouldReturnNotEqualLength()
         {
             Length inchValue = new Length(Length.Unit.INCH, 1.0);
@@ -154,6 +163,16 @@ namespace NUnitTestQuantityMeasurement
             Length feetValue = new Length(Length.Unit.FEET, 1.0);
             Length inchValue = new Length(Length.Unit.INCH, 12.0);
             bool compareCheck = feetValue.Compare(inchValue);
+            Assert.IsTrue(compareCheck);
+        }
+
+
+        [Test]
+        public void Given12InchAnd1Feet_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length inchValue = new Length(Length.Unit.INCH, 12.0);
+            Length feetValue = new Length(Length.Unit.FEET, 1.0);
+            bool compareCheck = inchValue.Compare(feetValue);
             Assert.IsTrue(compareCheck);
         }
     }
