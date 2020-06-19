@@ -78,5 +78,23 @@ namespace NUnitTestQuantityMeasurement
             Inch secondInch = null;
             Assert.AreNotEqual(firstInch, secondInch);
         }
+
+        [Test]
+        public void GivenTwoObjectsOfInch_WhenCheckReference_ShouldReturnFalse()
+        {
+            Inch firstInch = new Inch(0.0);
+            Inch secondInch = new Inch(0.0);
+            bool areEqual = System.Object.ReferenceEquals(firstInch, secondInch);
+            Assert.IsFalse(areEqual);
+        }
+
+        [Test]
+        public void GivenTwoObjectsOfInch_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
+        {
+            Inch firstInch = new Inch(0.0);
+            Inch secondInch = firstInch;
+            bool areEqual = System.Object.ReferenceEquals(firstInch, secondInch);
+            Assert.IsTrue(areEqual);
+        }
     }
 }
