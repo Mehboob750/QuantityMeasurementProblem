@@ -11,6 +11,7 @@ namespace QuantityMeasurementProblem
         private double FeetToInch = 12.0;
         private double InchToFeet = 12.0;
         private double FeetToYard = 3.0;
+        private double YardToInch = 36.0;
 
         public Length(Unit unit,double value)
         {
@@ -35,6 +36,10 @@ namespace QuantityMeasurementProblem
             if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.YARD))
             {
                 return that.value.CompareTo(this.value / FeetToYard) == 0;
+            }
+            if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.INCH))
+            {
+                return that.value.CompareTo(this.value * YardToInch) == 0;
             }
 
             return false;
