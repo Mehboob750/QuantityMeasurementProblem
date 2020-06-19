@@ -15,6 +15,10 @@ namespace QuantityMeasurementProblem
             this.value = value;
         }
 
+        public bool Compare(Length inchValue)
+        {
+            return true;
+        }
         public override bool Equals(object o)
         {
             // It checks for the Object
@@ -37,5 +41,7 @@ namespace QuantityMeasurementProblem
         {
             return HashCode.Combine(value);
         }
+
+      
     }
 }
