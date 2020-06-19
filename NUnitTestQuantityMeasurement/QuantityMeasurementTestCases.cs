@@ -22,11 +22,29 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given0FeetAnd1Feet_ShouldReturnsNotEqual()
+        public void Given0FeetAndNull_ShouldReturnsNotEqual()
         {
             Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(1.0);
-            Assert.AreNotEqual(firstFeet, secondFeet);
+            Feet secondFeet = null;
+            Assert.AreNotEqual(firstFeet,secondFeet);
+        }
+
+        [Test]
+        public void GivenTwoObjects_WhenCheckReference_ShouldReturnFalse()
+        {
+            Feet firstFeet = new Feet(0.0);
+            Feet secondFeet = new Feet(0.0);
+            bool areEqual = System.Object.ReferenceEquals(firstFeet, secondFeet);
+            Assert.IsFalse(areEqual);
+        }
+
+        [Test]
+        public void GivenTwoObjects_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
+        {
+            Feet firstFeet = new Feet(0.0);
+            Feet secondFeet = firstFeet;
+            bool areEqual = System.Object.ReferenceEquals(firstFeet, secondFeet);
+            Assert.IsTrue(areEqual);
         }
     }
 }
