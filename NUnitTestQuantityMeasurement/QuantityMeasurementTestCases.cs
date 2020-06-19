@@ -46,5 +46,13 @@ namespace NUnitTestQuantityMeasurement
             bool areEqual = System.Object.ReferenceEquals(firstFeet, secondFeet);
             Assert.IsTrue(areEqual);
         }
+
+        [Test]
+        public void GivenTwoObjects_WhenTypeChecked_ShouldReturnEqual()
+        {
+            Feet firstFeet = new Feet(0.0);
+            Feet secondFeet = new Feet(3.0);
+            Assert.AreEqual(firstFeet.GetType(), secondFeet.GetType());
+        }
     }
 }
