@@ -29,6 +29,7 @@ namespace QuantityMeasurementProblem
 
             return false;
         }
+
         public override bool Equals(object o)
         {
             // It checks for the Object
@@ -51,7 +52,6 @@ namespace QuantityMeasurementProblem
         {
             return HashCode.Combine(value);
         }
-
       
     }
 }

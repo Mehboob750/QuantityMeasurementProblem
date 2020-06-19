@@ -147,5 +147,14 @@ namespace NUnitTestQuantityMeasurement
             bool compareCheck = inchValue.Compare(feetValue);
             Assert.IsFalse(compareCheck);
         }
+
+        [Test]
+        public void Given1FeetAnd12Inch_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length feetValue = new Length(Length.Unit.FEET, 1.0);
+            Length inchValue = new Length(Length.Unit.INCH, 12.0);
+            bool compareCheck = feetValue.Compare(inchValue);
+            Assert.IsTrue(compareCheck);
+        }
     }
 }
