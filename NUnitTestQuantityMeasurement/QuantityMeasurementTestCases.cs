@@ -96,5 +96,13 @@ namespace NUnitTestQuantityMeasurement
             bool areEqual = System.Object.ReferenceEquals(firstInch, secondInch);
             Assert.IsTrue(areEqual);
         }
+
+        [Test]
+        public void GivenTwoObjectsOfInch_WhenTypeChecked_ShouldReturnEqual()
+        {
+            Inch firstInch = new Inch(0.0);
+            Inch secondInch = new Inch(3.0);
+            Assert.AreEqual(firstInch.GetType(), secondInch.GetType());
+        }
     }
 }
