@@ -8,6 +8,7 @@ namespace QuantityMeasurementProblem
 
         private Unit unit;
         private double value;
+        private double FeetToInch = 12.0;
 
         public Length(Unit unit,double value)
         {
@@ -15,9 +16,18 @@ namespace QuantityMeasurementProblem
             this.value = value;
         }
 
-        public bool Compare(Length inchValue)
+        public bool Compare(Length that)
         {
-            return true;
+            if (this.unit.Equals(that.unit))
+            {
+                return this.Equals(that);
+            }
+            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
+            {
+                return that.value.CompareTo(this.value*FeetToInch) == 0;
+            }
+
+            return false;
         }
         public override bool Equals(object o)
         {
