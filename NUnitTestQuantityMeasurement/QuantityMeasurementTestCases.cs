@@ -237,5 +237,13 @@ namespace NUnitTestQuantityMeasurement
             bool compareCheck = yardValue.Compare(feetValue);
             Assert.IsTrue(compareCheck);
         }
+
+        [Test]
+        public void Given0YardAndNull_ShouldReturnsNotEqual()
+        {
+            Length firstYard = new Length(Length.Unit.YARD, 0.0);
+            Length secondYard = null;
+            Assert.AreNotEqual(firstYard, secondYard);
+        }
     }
 }
