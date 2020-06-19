@@ -70,5 +70,13 @@ namespace NUnitTestQuantityMeasurement
             Inch secondInch = new Inch(0.0);
             Assert.AreEqual(firstInch, secondInch);
         }
+
+        [Test]
+        public void Given0InchAndNull_ShouldReturnsNotEqual()
+        {
+            Inch firstInch = new Inch(0.0);
+            Inch secondInch = null;
+            Assert.AreNotEqual(firstInch, secondInch);
+        }
     }
 }
