@@ -10,12 +10,14 @@ namespace NUnitTestQuantityMeasurement
     {
         private Weight kiloGram = null;
         private Weight gram = null;
+        private Weight tonne = null;
 
         [SetUp]
         public void Setup()
         {
             this.kiloGram = new Weight();
             this.gram = new Weight();
+            this.tonne = new Weight();
         }
 
         /// <summary>
@@ -59,6 +61,14 @@ namespace NUnitTestQuantityMeasurement
             double kiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
             double gramValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
             Assert.AreEqual(kiloGramValue, gramValue);
+        }
+
+        [Test]
+        public void Given0TonneAnd0Tonne_ShouldReturnsEqual()
+        {
+            double firstTonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+            double secondTonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+            Assert.AreEqual(firstTonneValue, secondTonneValue);
         }
     }
 }

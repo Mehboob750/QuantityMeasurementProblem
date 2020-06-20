@@ -10,7 +10,8 @@ namespace QuantityMeasurementProblem
         {
             KiloGrams,
             Grams,
-            GramsToKiloGrams
+            GramsToKiloGrams,
+            TonneToKiloGrams
         }
 
         public double ConvertValueToKiloGrams(Unit unit, double value)
@@ -20,6 +21,10 @@ namespace QuantityMeasurementProblem
                 if (unit.Equals(Unit.GramsToKiloGrams))
                 {
                     return value / 1000;
+                }
+                else if (unit.Equals(Unit.TonneToKiloGrams))
+                {
+                    return value * 1000;
                 }
 
                 return value;
