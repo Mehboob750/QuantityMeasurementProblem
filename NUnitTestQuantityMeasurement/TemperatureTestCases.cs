@@ -52,5 +52,13 @@ namespace NUnitTestQuantityMeasurement
             double secondCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
             Assert.AreNotEqual(firstCelsiusValue, secondCelsiusValue);
         }
+
+        [Test]
+        public void Given212FahrenheitAnd100Celsius_WhenValueChecked_ShouldReturnEqual()
+        {
+            double fahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.FahrenheitToCelsius, 212.0);
+            double celsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 100.0);
+            Assert.AreNotEqual(fahrenheitValue, celsiusValue);
+        }
     }
 }
