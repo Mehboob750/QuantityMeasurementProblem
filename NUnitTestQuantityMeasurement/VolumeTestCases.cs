@@ -130,7 +130,17 @@ namespace NUnitTestQuantityMeasurement
         {
             double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
             double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
-            double ActualValue = litre.AddTWoVolumes(firstGallonValue, secondGallonValue);
+            double ActualValue = gallon.AddTWoVolumes(firstGallonValue, secondGallonValue);
+            double ExpectedValue = 7.56;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
+
+        [Test]
+        public void Given1GallonAnd3point78Litre_WhenAdded_ShouldReturnSum()
+        {
+            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 3.78);
+            double ActualValue = litre.AddTWoVolumes(gallonValue,litreValue);
             double ExpectedValue = 7.56;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
