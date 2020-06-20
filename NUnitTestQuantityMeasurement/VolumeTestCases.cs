@@ -28,5 +28,13 @@ namespace NUnitTestQuantityMeasurement
             double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
             Assert.AreEqual(firstGallonValue, secondGallonValue);
         }
+
+        [Test]
+        public void Given0GallonAndNull_ShouldReturnsNotEqual()
+        {
+            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
+            Volume secondGallonValue = null;
+            Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+        }
     }
 }
