@@ -154,5 +154,15 @@ namespace NUnitTestQuantityMeasurement
             double ExpectedValue = 2.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
+
+        [Test]
+        public void Given1GallonAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
+        {
+            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            double ActualValue = litre.AddTWoVolumes(gallonValue, miliLitreValue);
+            double ExpectedValue = 4.78;
+            Assert.AreEqual(ExpectedValue, Math.Round(ActualValue, 2));
+        }
     }
 }
