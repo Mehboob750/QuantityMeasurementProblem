@@ -94,9 +94,9 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd3Point78Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 0.0);
+            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
             double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 3.78);
-            Assert.AreNotEqual(gallonValue, litreValue);
+            Assert.AreEqual(gallonValue, litreValue);
         }
 
         [Test]
@@ -105,6 +105,14 @@ namespace NUnitTestQuantityMeasurement
             double firstMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
             double secondMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
             Assert.AreEqual(firstMiliLitreValue, secondMiliLitreValue);
+        }
+
+        [Test]
+        public void Given1LitreAnd1000MiliLitre_WhenValueChecked_ShouldReturnEqual()
+        {
+            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            Assert.AreEqual(litreValue, miliLitreValue);
         }
     }
 }
