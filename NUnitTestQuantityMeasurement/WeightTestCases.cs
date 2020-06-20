@@ -28,5 +28,13 @@ namespace NUnitTestQuantityMeasurement
             double secondKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
             Assert.AreEqual(firstKiloGramsValue, secondKiloGramsValue);
         }
+
+        [Test]
+        public void Given0KiloGramsAnd1KiloGrams_ShouldReturnsEqual()
+        {
+            double firstKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
+            double secondKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+            Assert.AreNotEqual(firstKiloGramsValue, secondKiloGramsValue);
+        }
     }
 }
