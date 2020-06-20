@@ -26,15 +26,15 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GallonAnd0Gallon_ShouldReturnsEqual()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
-            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
+            double firstGallonValue = gallon.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
+            double secondGallonValue = gallon.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
             Assert.AreEqual(firstGallonValue, secondGallonValue);
         }
 
         [Test]
         public void Given0GallonAndNull_ShouldReturnsNotEqual()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
+            double firstGallonValue = gallon.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
             Volume secondGallonValue = null;
             Assert.AreNotEqual(firstGallonValue, secondGallonValue);
         }
@@ -62,64 +62,64 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenTypeChecked_ShouldReturnEqual()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 3.0);
-            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 3.0);
+            double firstGallonValue = gallon.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
+            double secondGallonValue = gallon.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
             Assert.AreEqual(firstGallonValue.GetType(), secondGallonValue.GetType());
         }
 
         [Test]
         public void Given0GallonAnd1Gallon_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 0.0);
-            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double firstGallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 0.0);
+            double secondGallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
             Assert.AreNotEqual(firstGallonValue, secondGallonValue);
         }
 
         [Test]
         public void Given0LitreAnd0Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
-            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
+            double firstLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
+            double secondLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
             Assert.AreEqual(firstLitreValue, secondLitreValue);
         }
 
         [Test]
         public void Given0LitreAnd1Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
-            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double firstLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
+            double secondLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
             Assert.AreNotEqual(firstLitreValue, secondLitreValue);
         }
 
         [Test]
         public void Given1GallonAnd3Point78Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
-            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 3.78);
+            double gallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+            double litreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
             Assert.AreEqual(gallonValue, litreValue);
         }
 
         [Test]
         public void Given0MiliLitreAnd0MiliLitre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
-            double secondMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
+            double firstMiliLitreValue = miliLitre.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
+            double secondMiliLitreValue = miliLitre.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
             Assert.AreEqual(firstMiliLitreValue, secondMiliLitreValue);
         }
 
         [Test]
         public void Given1LitreAnd1000MiliLitre_WhenValueChecked_ShouldReturnEqual()
         {
-            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
-            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            double litreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
             Assert.AreEqual(litreValue, miliLitreValue);
         }
 
         [Test]
         public void Given1LitreAnd1Litre_WhenAdded_ShouldReturnSum()
         {
-            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
-            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double firstLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+            double secondLitreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
             double ActualValue = litre.AddTWoVolumes(firstLitreValue, secondLitreValue);
             double ExpectedValue = 2.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
@@ -128,8 +128,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd1Gallon_WhenAdded_ShouldReturnSum()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
-            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double firstGallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+            double secondGallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
             double ActualValue = gallon.AddTWoVolumes(firstGallonValue, secondGallonValue);
             double ExpectedValue = 7.56;
             Assert.AreEqual(ExpectedValue, ActualValue);
@@ -138,8 +138,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd3point78Litre_WhenAdded_ShouldReturnSum()
         {
-            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
-            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 3.78);
+            double gallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+            double litreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
             double ActualValue = litre.AddTWoVolumes(gallonValue,litreValue);
             double ExpectedValue = 7.56;
             Assert.AreEqual(ExpectedValue, ActualValue);
@@ -148,8 +148,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1LitreAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
         {
-            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
-            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            double litreValue = litre.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
             double ActualValue = litre.AddTWoVolumes(litreValue, miliLitreValue);
             double ExpectedValue = 2.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
@@ -158,8 +158,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
         {
-            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
-            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            double gallonValue = gallon.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
             double ActualValue = litre.AddTWoVolumes(gallonValue, miliLitreValue);
             double ExpectedValue = 4.78;
             Assert.AreEqual(ExpectedValue, Math.Round(ActualValue, 2));

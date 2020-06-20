@@ -14,7 +14,7 @@ namespace QuantityMeasurementProblem
             MiliLitreToLitre
         }
 
-        public double ConvertValueToInch(Unit unit, double value)
+        public double ConvertValueToLitre(Unit unit, double value)
         {
             try
             {
