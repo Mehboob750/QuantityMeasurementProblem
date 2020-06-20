@@ -9,7 +9,8 @@ namespace QuantityMeasurementProblem
         public enum Unit
         {
             Fahrenheit,
-            FahrenheitToCelsius
+            FahrenheitToCelsius,
+            Celsius
         }
 
         public double ConvertValueToCelsius(Unit unit, double value)
