@@ -11,7 +11,8 @@ namespace QuantityMeasurementProblem
             Yard, 
             CentiMeter,
             FeetToInch, 
-            YardToInch 
+            YardToInch,
+            CentiMeterToInch
         }
 
         public Length() 
@@ -29,6 +30,10 @@ namespace QuantityMeasurementProblem
                 else if (unit.Equals(Unit.YardToInch))
                 {
                     return value * 36.0;
+                }
+                else if (unit.Equals(Unit.CentiMeterToInch))
+                {
+                    return value / 2.5;
                 }
                 return value;
             }

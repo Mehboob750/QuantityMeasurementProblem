@@ -288,11 +288,11 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given0CentiMeterAnd1CentiMeter_WhenValueChecked_ShouldReturnNotEqual()
+        public void Given2InchAnd5CentiMeter_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstCentiMeterValue = inch.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
-            double secondCentimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeter, 1.0);
-            Assert.AreNotEqual(firstCentiMeterValue, secondCentimeterValue);
+            double inchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
+            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 5.0);
+            Assert.AreEqual(inchValue, centimeterValue);
         }
     }
 }
