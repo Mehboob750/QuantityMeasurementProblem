@@ -328,5 +328,15 @@ namespace NUnitTestQuantityMeasurement
             double ExpectedValue = 2.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
+
+        [Test]
+        public void Given2InchAnd2Inch_WhenAdded_ShouldReturnSum()
+        {
+            double firstInchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
+            double secondInchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
+            double ActualValue = inch.AddTWoLengths(firstInchValue, secondInchValue);
+            double ExpectedValue = 4.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
