@@ -82,9 +82,17 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1TonneAnd1KiloGram_ShouldReturnsNotEqual()
         {
-            double tonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+            double tonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
             double kiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
             Assert.AreNotEqual(tonneValue, kiloGramValue);
+        }
+
+        [Test]
+        public void Given1TonneAnd1000KiloGrams_ShouldReturnsEqual()
+        {
+            double tonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+            double kiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1000.0);
+            Assert.AreEqual(tonneValue, kiloGramValue);
         }
     }
 }
