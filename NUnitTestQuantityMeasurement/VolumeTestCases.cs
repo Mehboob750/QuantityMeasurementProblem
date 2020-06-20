@@ -124,5 +124,15 @@ namespace NUnitTestQuantityMeasurement
             double ExpectedValue = 2.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
+
+        [Test]
+        public void Given1GallonAnd1Gallon_WhenAdded_ShouldReturnSum()
+        {
+            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
+            double ActualValue = litre.AddTWoVolumes(firstGallonValue, secondGallonValue);
+            double ExpectedValue = 7.56;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
