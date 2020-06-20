@@ -9,6 +9,7 @@ namespace QuantityMeasurementProblem
             Feet, 
             Inch, 
             Yard, 
+            CentiMeter,
             FeetToInch, 
             YardToInch 
         }
