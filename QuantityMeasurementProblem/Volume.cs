@@ -34,5 +34,10 @@ namespace QuantityMeasurementProblem
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        public double AddTWoVolumes(double firstLitreValue, double secondLitreValue)
+        {
+            return firstLitreValue + secondLitreValue;
+        }
     }
 }

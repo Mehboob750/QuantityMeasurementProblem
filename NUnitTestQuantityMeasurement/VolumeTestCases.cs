@@ -114,5 +114,15 @@ namespace NUnitTestQuantityMeasurement
             double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
             Assert.AreEqual(litreValue, miliLitreValue);
         }
+
+        [Test]
+        public void Given1LitreAnd1Litre_WhenAdded_ShouldReturnSum()
+        {
+            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double ActualValue = litre.AddTWoVolumes(firstLitreValue, secondLitreValue);
+            double ExpectedValue = 2.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
