@@ -44,5 +44,13 @@ namespace NUnitTestQuantityMeasurement
             double secondCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
             Assert.AreEqual(firstCelsiusValue, secondCelsiusValue);
         }
+
+        [Test]
+        public void Given0CelsiusAnd1Celsius_WhenValueChecked_ShouldReturnNotEqual()
+        {
+            double firstCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+            double secondCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
+            Assert.AreNotEqual(firstCelsiusValue, secondCelsiusValue);
+        }
     }
 }
