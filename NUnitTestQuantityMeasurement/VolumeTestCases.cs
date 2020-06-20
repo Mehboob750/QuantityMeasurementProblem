@@ -45,5 +45,16 @@ namespace NUnitTestQuantityMeasurement
             bool areEqual = System.Object.ReferenceEquals(firstObject, secondObject);
             Assert.IsFalse(areEqual);
         }
+
+        [Test]
+        public void GivenTwoObjects_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
+        {
+
+            Volume firstObject = new Volume();
+            Volume secondObject = new Volume();
+            firstObject = secondObject;
+            bool areEqual = System.Object.ReferenceEquals(firstObject, secondObject);
+            Assert.IsTrue(areEqual);
+        }
     }
 }
