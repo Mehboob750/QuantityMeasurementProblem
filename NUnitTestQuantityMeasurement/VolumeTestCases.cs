@@ -80,5 +80,13 @@ namespace NUnitTestQuantityMeasurement
             double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
             Assert.AreEqual(firstLitreValue, secondLitreValue);
         }
+
+        [Test]
+        public void Given0LitreAnd1Litre_WhenValueChecked_ShouldReturnEqual()
+        {
+            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
+            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            Assert.AreNotEqual(firstLitreValue, secondLitreValue);
+        }
     }
 }
