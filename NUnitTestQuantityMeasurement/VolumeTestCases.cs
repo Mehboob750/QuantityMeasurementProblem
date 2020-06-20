@@ -10,12 +10,14 @@ namespace NUnitTestQuantityMeasurement
     {
         private Volume litre = null;
         private Volume gallon = null;
+        private Volume miliLitre = null;
 
         [SetUp]
         public void Setup()
         {
             this.litre = new Volume();
             this.gallon = new Volume();
+            this.miliLitre = new Volume();
         }
 
         /// <summary>
@@ -87,6 +89,22 @@ namespace NUnitTestQuantityMeasurement
             double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
             double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
             Assert.AreNotEqual(firstLitreValue, secondLitreValue);
+        }
+
+        [Test]
+        public void Given1GallonAnd3Point78Litre_WhenValueChecked_ShouldReturnEqual()
+        {
+            double gallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 0.0);
+            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 3.78);
+            Assert.AreNotEqual(gallonValue, litreValue);
+        }
+
+        [Test]
+        public void Given0MiliLitreAnd0MiliLitre_WhenValueChecked_ShouldReturnEqual()
+        {
+            double firstMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
+            double secondMiliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 0.0);
+            Assert.AreEqual(firstMiliLitreValue, secondMiliLitreValue);
         }
     }
 }

@@ -10,7 +10,8 @@ namespace QuantityMeasurementProblem
         {
             Gallon,
             Litre,
-            GallonToLitre
+            GallonToLitre,
+            MiliLitreToLitre
         }
 
         public double ConvertValueToInch(Unit unit, double value)
@@ -21,7 +22,11 @@ namespace QuantityMeasurementProblem
                 {
                     return value * 3.78;
                 }
-               
+                else if (unit.Equals(Unit.MiliLitreToLitre))
+                {
+                    return value / 1000;
+                }
+
                 return value;
             }
             catch (Exception e)
