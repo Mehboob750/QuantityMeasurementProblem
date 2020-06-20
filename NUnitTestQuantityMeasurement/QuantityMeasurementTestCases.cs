@@ -248,15 +248,15 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0CentiMeterAnd0CentiMeter_WhenComparingLength_ShouldReturnEqualLength()
         {
-            double firstCentiMeterValue = yard.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
-            double secondCentiMeterValue = feet.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
+            double firstCentiMeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
+            double secondCentiMeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
             Assert.AreEqual(firstCentiMeterValue, secondCentiMeterValue);
         }
 
         [Test]
         public void Given0CentiMeterAndNull_WhenComparingLength_ShouldReturnNotEqualLength()
         {
-            double firstCentiMeterValue = yard.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
+            double firstCentiMeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
             Length secondCentiMeterValue = null;
             Assert.AreNotEqual(firstCentiMeterValue, secondCentiMeterValue);
         }
@@ -282,8 +282,8 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjectsOfCentiMeter_WhenTypeChecked_ShouldReturnEqual()
         {
-            double firstCentiMeter = inch.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
-            double secondCentimeter = inch.ConvertTheValue(Length.Unit.CentiMeter, 1.0);
+            double firstCentiMeter = centiMeter.ConvertTheValue(Length.Unit.CentiMeter, 0.0);
+            double secondCentimeter = centiMeter.ConvertTheValue(Length.Unit.CentiMeter, 1.0);
             Assert.AreEqual(firstCentiMeter.GetType(), secondCentimeter.GetType());
         }
 
@@ -291,23 +291,23 @@ namespace NUnitTestQuantityMeasurement
         public void Given2InchAnd5CentiMeter_WhenValueChecked_ShouldReturnEqual()
         {
             double inchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
-            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 5.0);
+            double centimeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeterToInch, 5.0);
             Assert.AreEqual(inchValue, centimeterValue);
         }
 
         [Test]
         public void Given1FeetAnd1CentiMeter_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double feetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
-            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
+            double feetValue = feet.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double centimeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
             Assert.AreNotEqual(feetValue, centimeterValue);
         }
 
         [Test]
         public void Given1FeetAnd30CentiMeter_WhenValueChecked_ShouldReturnEqual()
         {
-            double feetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
-            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 30.0);
+            double feetValue = feet.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double centimeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeterToInch, 30.0);
             Assert.AreEqual(feetValue, centimeterValue);
         }
 
@@ -315,7 +315,7 @@ namespace NUnitTestQuantityMeasurement
         public void Given1YardAnd1CentiMeter_WhenValueChecked_ShouldReturnNotEqual()
         {
             double yardValue = inch.ConvertTheValue(Length.Unit.YardToInch, 1.0);
-            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
+            double centimeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
             Assert.AreNotEqual(yardValue, centimeterValue);
         }
 
@@ -342,7 +342,7 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1FeetAnd2Inch_WhenAdded_ShouldReturnSum()
         {
-            double feetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double feetValue = feet.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
             double inchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
             double ActualValue = inch.AddTWoLengths(feetValue, inchValue);
             double ExpectedValue = 14.0;
@@ -352,10 +352,20 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1FeetAnd1Feet_WhenAdded_ShouldReturnSum()
         {
-            double firstFeetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
-            double secondFeetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double firstFeetValue = feet.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double secondFeetValue = feet.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
             double ActualValue = inch.AddTWoLengths(firstFeetValue, secondFeetValue);
             double ExpectedValue = 24.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
+
+        [Test]
+        public void Given2InchAnd2andHalfCentimeter_WhenAdded_ShouldReturnSum()
+        {
+            double inchValue = inch.ConvertTheValue(Length.Unit.Inch, 2.0);
+            double centiMeterValue = centiMeter.ConvertTheValue(Length.Unit.CentiMeterToInch, 2.5);
+            double ActualValue = inch.AddTWoLengths(inchValue, centiMeterValue);
+            double ExpectedValue = 3.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
     }
