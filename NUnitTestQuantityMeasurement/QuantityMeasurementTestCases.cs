@@ -296,6 +296,14 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
+        public void Given1FeetAnd1CentiMeter_WhenValueChecked_ShouldReturnNotEqual()
+        {
+            double feetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
+            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
+            Assert.AreNotEqual(feetValue, centimeterValue);
+        }
+
+        [Test]
         public void Given1FeetAnd30CentiMeter_WhenValueChecked_ShouldReturnEqual()
         {
             double feetValue = inch.ConvertTheValue(Length.Unit.FeetToInch, 1.0);
