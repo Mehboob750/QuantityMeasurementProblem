@@ -96,12 +96,22 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given1LitreAnd1Litre_WhenAdded_ShouldReturnSum()
+        public void Given1KiloGramAnd1KiloGram_WhenAdded_ShouldReturnSum()
         {
             double firstKiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
             double secondKiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
             double ActualValue = kiloGram.AddTWoWeights(firstKiloGramValue, secondKiloGramValue);
             double ExpectedValue = 2.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
+
+        [Test]
+        public void Given1TonneAnd1000Gram_WhenAdded_ShouldReturnSum()
+        {
+            double tonneValue = tonne.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+            double gramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
+            double ActualValue = kiloGram.AddTWoWeights(tonneValue, gramValue);
+            double ExpectedValue = 1001.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
     }
