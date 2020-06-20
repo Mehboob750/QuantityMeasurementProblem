@@ -36,5 +36,14 @@ namespace NUnitTestQuantityMeasurement
             Volume secondGallonValue = null;
             Assert.AreNotEqual(firstGallonValue, secondGallonValue);
         }
+
+        [Test]
+        public void GivenTwoObjects_WhenCheckReference_ShouldReturnFalse()
+        {
+            Volume firstObject = new Volume();
+            Volume secondObject = new Volume();
+            bool areEqual = System.Object.ReferenceEquals(firstObject, secondObject);
+            Assert.IsFalse(areEqual);
+        }
     }
 }
