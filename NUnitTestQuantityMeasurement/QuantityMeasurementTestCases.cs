@@ -318,5 +318,15 @@ namespace NUnitTestQuantityMeasurement
             double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
             Assert.AreNotEqual(yardValue, centimeterValue);
         }
+
+        [Test]
+        public void Given1InchAnd1Inch_WhenAdded_ShouldReturnSum()
+        {
+            double firstInchValue = inch.ConvertTheValue(Length.Unit.Inch, 1.0);
+            double secondInchValue = inch.ConvertTheValue(Length.Unit.Inch, 1.0);
+            double ActualValue = inch.AddTWoLengths(firstInchValue, secondInchValue);
+            double ExpectedValue = 2.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }

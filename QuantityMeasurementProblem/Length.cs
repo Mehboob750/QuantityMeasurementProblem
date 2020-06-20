@@ -43,5 +43,9 @@ namespace QuantityMeasurementProblem
             }
         }
 
+        public double AddTWoLengths(double firstInchValue, double secondInchValue)
+        {
+            return firstInchValue + secondInchValue;
+        }
     }
 }
