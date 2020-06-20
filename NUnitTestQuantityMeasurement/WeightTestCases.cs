@@ -19,10 +19,10 @@ namespace NUnitTestQuantityMeasurement
         }
 
         /// <summary>
-        /// Given Zero KiloGrams And Zero KiloGrams Returns the Equal
+        /// Given Zero KiloGram And Zero KiloGram Returns the Equal
         /// </summary>
         [Test]
-        public void Given0KiloGramsAnd0KiloGrams_ShouldReturnsEqual()
+        public void Given0KiloGramAnd0KiloGram_ShouldReturnsEqual()
         {
             double firstKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
             double secondKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
@@ -30,7 +30,7 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given0KiloGramsAnd1KiloGrams_ShouldReturnsEqual()
+        public void Given0KiloGramAnd1KiloGram_ShouldReturnsNotEqual()
         {
             double firstKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
             double secondKiloGramsValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
@@ -38,7 +38,7 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given0GramsAnd0Grams_ShouldReturnsEqual()
+        public void Given0GramAnd0Gram_ShouldReturnsEqual()
         {
             double firstGramsValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
             double secondGramsValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
@@ -46,11 +46,19 @@ namespace NUnitTestQuantityMeasurement
         }
 
         [Test]
-        public void Given0GramsAnd1Grams_ShouldReturnsEqual()
+        public void Given0GramAnd1Gram_ShouldReturnsNotEqual()
         {
             double firstGramsValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
             double secondGramsValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1.0);
             Assert.AreNotEqual(firstGramsValue, secondGramsValue);
+        }
+
+        [Test]
+        public void Given1KiloGramAnd1000Grams_ShouldReturnsEqual()
+        {
+            double kiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+            double gramValue = gram.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
+            Assert.AreEqual(kiloGramValue, gramValue);
         }
     }
 }
