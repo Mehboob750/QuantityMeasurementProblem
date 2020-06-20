@@ -56,5 +56,13 @@ namespace NUnitTestQuantityMeasurement
             bool areEqual = System.Object.ReferenceEquals(firstObject, secondObject);
             Assert.IsTrue(areEqual);
         }
+
+        [Test]
+        public void GivenTwoObjects_WhenTypeChecked_ShouldReturnEqual()
+        {
+            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 3.0);
+            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 3.0);
+            Assert.AreEqual(firstGallonValue.GetType(), secondGallonValue.GetType());
+        }
     }
 }
