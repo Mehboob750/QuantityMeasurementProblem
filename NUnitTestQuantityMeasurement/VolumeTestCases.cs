@@ -144,5 +144,15 @@ namespace NUnitTestQuantityMeasurement
             double ExpectedValue = 7.56;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
+
+        [Test]
+        public void Given1LitreAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
+        {
+            double litreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 1.0);
+            double miliLitreValue = miliLitre.ConvertValueToInch(Volume.Unit.MiliLitreToLitre, 1000.0);
+            double ActualValue = litre.AddTWoVolumes(litreValue, miliLitreValue);
+            double ExpectedValue = 2.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
