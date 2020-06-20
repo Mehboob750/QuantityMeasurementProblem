@@ -34,5 +34,10 @@ namespace QuantityMeasurementProblem
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        public double AddTWoWeights(double firstKiloGramValue, double secondKiloGramValue)
+        {
+            return firstKiloGramValue + secondKiloGramValue;
+        }
     }
 }

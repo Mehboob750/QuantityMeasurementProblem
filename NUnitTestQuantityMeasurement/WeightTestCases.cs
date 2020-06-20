@@ -94,5 +94,15 @@ namespace NUnitTestQuantityMeasurement
             double kiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1000.0);
             Assert.AreEqual(tonneValue, kiloGramValue);
         }
+
+        [Test]
+        public void Given1LitreAnd1Litre_WhenAdded_ShouldReturnSum()
+        {
+            double firstKiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+            double secondKiloGramValue = kiloGram.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+            double ActualValue = kiloGram.AddTWoWeights(firstKiloGramValue, secondKiloGramValue);
+            double ExpectedValue = 2.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
