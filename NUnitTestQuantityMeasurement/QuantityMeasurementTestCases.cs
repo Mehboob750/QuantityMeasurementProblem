@@ -378,5 +378,15 @@ namespace NUnitTestQuantityMeasurement
             double ExpectedValue = 37.0;
             Assert.AreEqual(ExpectedValue, ActualValue);
         }
+
+        [Test]
+        public void Given1FeetAnd1Yard_WhenAdded_ShouldReturnSum()
+        {
+            double feetValue = feet.ConvertValueToInch(Length.Unit.FeetToInch, 1.0);
+            double yardValue = yard.ConvertValueToInch(Length.Unit.YardToInch, 1.0);
+            double ActualValue = inch.AddTWoLengths(feetValue, yardValue);
+            double ExpectedValue = 48.0;
+            Assert.AreEqual(ExpectedValue, ActualValue);
+        }
     }
 }
