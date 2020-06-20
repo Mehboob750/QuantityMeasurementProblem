@@ -68,9 +68,17 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GallonAnd1Gallon_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 0.0);
-            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.Gallon, 1.0);
+            double firstGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 0.0);
+            double secondGallonValue = gallon.ConvertValueToInch(Volume.Unit.GallonToLitre, 1.0);
             Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+        }
+
+        [Test]
+        public void Given0LitreAnd0Litre_WhenValueChecked_ShouldReturnEqual()
+        {
+            double firstLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
+            double secondLitreValue = litre.ConvertValueToInch(Volume.Unit.Litre, 0.0);
+            Assert.AreEqual(firstLitreValue, secondLitreValue);
         }
     }
 }
