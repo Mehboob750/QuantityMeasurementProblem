@@ -26,5 +26,13 @@ namespace NUnitTestQuantityMeasurement
             double secondFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
             Assert.AreEqual(firstFahrenheitValue, secondFahrenheitValue);
         }
+
+        [Test]
+        public void Given0FahrenheitAnd1Fahrenheit_ShouldReturnNotEqual()
+        {
+            double firstFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+            double secondFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 1.0);
+            Assert.AreNotEqual(firstFahrenheitValue, secondFahrenheitValue);
+        }
     }
 }
