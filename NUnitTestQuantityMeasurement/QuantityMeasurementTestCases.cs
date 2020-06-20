@@ -310,5 +310,13 @@ namespace NUnitTestQuantityMeasurement
             double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 30.0);
             Assert.AreEqual(feetValue, centimeterValue);
         }
+
+        [Test]
+        public void Given1YardAnd1CentiMeter_WhenValueChecked_ShouldReturnNotEqual()
+        {
+            double yardValue = inch.ConvertTheValue(Length.Unit.YardToInch, 1.0);
+            double centimeterValue = inch.ConvertTheValue(Length.Unit.CentiMeterToInch, 1.0);
+            Assert.AreNotEqual(yardValue, centimeterValue);
+        }
     }
 }
