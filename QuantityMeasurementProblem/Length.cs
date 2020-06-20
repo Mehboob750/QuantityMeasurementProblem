@@ -19,7 +19,7 @@ namespace QuantityMeasurementProblem
         {
         }
 
-        public double ConvertTheValue(Unit unit, double value)
+        public double ConvertValueToInch(Unit unit, double value)
         {
             try
             {
