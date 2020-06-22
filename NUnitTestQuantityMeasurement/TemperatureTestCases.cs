@@ -36,9 +36,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0FahrenheitAnd0Fahrenheit_WhenValueChecked_ShouldReturnsEqual()
         {
-            double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
-            double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
-            Assert.AreEqual(firstFahrenheitValue, secondFahrenheitValue);
+            try
+            {
+                double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+                double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+                Assert.AreEqual(firstFahrenheitValue, secondFahrenheitValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -47,9 +54,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0FahrenheitAnd1Fahrenheit_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
-            double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 1.0);
-            Assert.AreNotEqual(firstFahrenheitValue, secondFahrenheitValue);
+            try
+            {
+                double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+                double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 1.0);
+                Assert.AreNotEqual(firstFahrenheitValue, secondFahrenheitValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -58,9 +72,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0CelsiusAnd0Celsius_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
-            double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
-            Assert.AreEqual(firstCelsiusValue, secondCelsiusValue);
+            try
+            {
+                double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+                double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+                Assert.AreEqual(firstCelsiusValue, secondCelsiusValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -69,9 +90,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0CelsiusAnd1Celsius_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
-            double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
-            Assert.AreNotEqual(firstCelsiusValue, secondCelsiusValue);
+            try
+            {
+                double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+                double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
+                Assert.AreNotEqual(firstCelsiusValue, secondCelsiusValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -80,9 +108,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given212FahrenheitAnd100Celsius_WhenValueChecked_ShouldReturnEqual()
         {
-            double fahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.FahrenheitToCelsius, 212.0);
-            double celsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 100.0);
-            Assert.AreEqual(fahrenheitValue, celsiusValue);
+            try
+            {
+                double fahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.FahrenheitToCelsius, 212.0);
+                double celsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 100.0);
+                Assert.AreEqual(fahrenheitValue, celsiusValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
     }
 }

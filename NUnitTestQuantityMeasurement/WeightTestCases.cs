@@ -36,9 +36,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0KiloGramAnd0KiloGram_ShouldReturnsEqual()
         {
-            double firstKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
-            double secondKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
-            Assert.AreEqual(firstKiloGramsValue, secondKiloGramsValue);
+            try
+            {
+                double firstKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
+                double secondKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
+                Assert.AreEqual(firstKiloGramsValue, secondKiloGramsValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -47,9 +54,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0KiloGramAnd1KiloGram_ShouldReturnsNotEqual()
         {
-            double firstKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
-            double secondKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
-            Assert.AreNotEqual(firstKiloGramsValue, secondKiloGramsValue);
+            try
+            {
+                double firstKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 0.0);
+                double secondKiloGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+                Assert.AreNotEqual(firstKiloGramsValue, secondKiloGramsValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -58,9 +72,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GramAnd0Gram_ShouldReturnsEqual()
         {
-            double firstGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
-            double secondGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
-            Assert.AreEqual(firstGramsValue, secondGramsValue);
+            try
+            {
+                double firstGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
+                double secondGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
+                Assert.AreEqual(firstGramsValue, secondGramsValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -69,9 +90,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GramAnd1Gram_ShouldReturnsNotEqual()
         {
-            double firstGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
-            double secondGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1.0);
-            Assert.AreNotEqual(firstGramsValue, secondGramsValue);
+            try
+            {
+                double firstGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 0.0);
+                double secondGramsValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1.0);
+                Assert.AreNotEqual(firstGramsValue, secondGramsValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -80,9 +108,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1KiloGramAnd1000Grams_ShouldReturnsEqual()
         {
-            double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
-            double gramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
-            Assert.AreEqual(kiloGramValue, gramValue);
+            try
+            {
+                double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+                double gramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
+                Assert.AreEqual(kiloGramValue, gramValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -91,9 +126,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0TonneAnd0Tonne_ShouldReturnsEqual()
         {
-            double firstTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
-            double secondTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
-            Assert.AreEqual(firstTonneValue, secondTonneValue);
+            try
+            {
+                double firstTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+                double secondTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+                Assert.AreEqual(firstTonneValue, secondTonneValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -102,9 +144,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0TonneAnd1Tonne_ShouldReturnsNotEqual()
         {
-            double firstTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
-            double secondTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
-            Assert.AreNotEqual(firstTonneValue, secondTonneValue);
+            try
+            {
+                double firstTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 0.0);
+                double secondTonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+                Assert.AreNotEqual(firstTonneValue, secondTonneValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -113,9 +162,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1TonneAnd1KiloGram_ShouldReturnsNotEqual()
         {
-            double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
-            double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
-            Assert.AreNotEqual(tonneValue, kiloGramValue);
+            try
+            {
+                double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+                double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+                Assert.AreNotEqual(tonneValue, kiloGramValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -124,9 +180,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1TonneAnd1000KiloGrams_ShouldReturnsEqual()
         {
-            double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
-            double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1000.0);
-            Assert.AreEqual(tonneValue, kiloGramValue);
+            try
+            {
+                double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+                double kiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1000.0);
+                Assert.AreEqual(tonneValue, kiloGramValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -135,11 +198,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1KiloGramAnd1KiloGram_WhenAdded_ShouldReturnSum()
         {
-            double firstKiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
-            double secondKiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
-            double actualValue = this.weight.AddTWoWeights(firstKiloGramValue, secondKiloGramValue);
-            double expectedValue = 2.0;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double firstKiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+                double secondKiloGramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.KiloGrams, 1.0);
+                double actualValue = this.weight.AddTWoWeights(firstKiloGramValue, secondKiloGramValue);
+                double expectedValue = 2.0;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -148,11 +218,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1TonneAnd1000Gram_WhenAdded_ShouldReturnSum()
         {
-            double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
-            double gramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
-            double actualValue = this.weight.AddTWoWeights(tonneValue, gramValue);
-            double expectedValue = 1001.0;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double tonneValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.TonneToKiloGrams, 1.0);
+                double gramValue = this.weight.ConvertValueToKiloGrams(Weight.Unit.GramsToKiloGrams, 1000.0);
+                double actualValue = this.weight.AddTWoWeights(tonneValue, gramValue);
+                double expectedValue = 1001.0;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
     }
 }

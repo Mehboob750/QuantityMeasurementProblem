@@ -1,6 +1,15 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="QuantityMeasurementException.cs" company="BridgeLabz Solution">
+//  Copyright (c) BridgeLabz Solution. All rights reserved.
+// </copyright>
+// <author>Mehboob Shaikh</author>
+//-----------------------------------------------------------------------
+[module: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:FileHeaderFileNameDocumentationMustMatchTypeName", Justification = "Reviewed.")]
+
 namespace QuantityMeasurementProblem
 {
+    using System;
+
     /// <summary>
     /// This Class used to Define Custom Exceptions
     /// </summary>

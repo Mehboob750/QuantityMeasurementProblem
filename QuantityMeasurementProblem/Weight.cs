@@ -9,12 +9,18 @@
 namespace QuantityMeasurementProblem
 {
     using System;
+    using NUnit.Framework;
 
     /// <summary>
     /// This Class is Used To Compare and Add two Weight
     /// </summary>
     public class Weight
     {
+        /// <summary>
+        /// This value is used to convert into Kilogram
+        /// </summary>
+        private double conversionValue = 1000;
+
         /// <summary>
         /// Enum is Used To Declare Enumerated Constants
         /// </summary>
@@ -54,18 +60,22 @@ namespace QuantityMeasurementProblem
                 // Check If Unit Is Equal To GramsToKiloGrams Then Convert The gram Value Into kilogram
                 if (unit.Equals(Unit.GramsToKiloGrams))
                 {
-                    return value / 1000;
+                    return value / this.conversionValue;
                 }
                 else if (unit.Equals(Unit.TonneToKiloGrams))
                 {
-                    return value * 1000;
+                    return value * this.conversionValue;
                 }
 
                 return value;
             }
-            catch (Exception e)
+            catch (QuantityMeasurementException e)
             {
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.InvalidValue, e.Message);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
@@ -77,8 +87,19 @@ namespace QuantityMeasurementProblem
         /// <returns>It Returns The Addition of that two values in kilogram Format</returns>
         public double AddTWoWeights(double firstKiloGramValue, double secondKiloGramValue)
         {
-            // Addition of two kilogram values
-            return firstKiloGramValue + secondKiloGramValue;
+            try
+            {
+                // Addition of two kilogram values
+                return firstKiloGramValue + secondKiloGramValue;
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

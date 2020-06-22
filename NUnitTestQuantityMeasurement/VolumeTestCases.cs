@@ -37,9 +37,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GallonAnd0Gallon_ShouldReturnsEqual()
         {
-            double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
-            double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
-            Assert.AreEqual(firstGallonValue, secondGallonValue);
+            try
+            {
+                double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
+                double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
+                Assert.AreEqual(firstGallonValue, secondGallonValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -48,9 +55,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GallonAndNull_ShouldReturnsNotEqual()
         {
-            double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
-            Volume secondGallonValue = null;
-            Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+            try
+            {
+                double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 0.0);
+                Volume secondGallonValue = null;
+                Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -59,10 +73,17 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenCheckReference_ShouldReturnFalse()
         {
-            Volume firstObject = new Volume();
-            Volume secondObject = new Volume();
-            bool areEqual = object.ReferenceEquals(firstObject, secondObject);
-            Assert.IsFalse(areEqual);
+            try
+            {
+                Volume firstObject = new Volume();
+                Volume secondObject = new Volume();
+                bool result = object.ReferenceEquals(firstObject, secondObject);
+                Assert.IsFalse(result);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -71,11 +92,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenFirstAssignToSecondAndReferenceCheck_ShouldReturnTrue()
         {
-            Volume firstObject = new Volume();
-            Volume secondObject = new Volume();
-            firstObject = secondObject;
-            bool areEqual = object.ReferenceEquals(firstObject, secondObject);
-            Assert.IsTrue(areEqual);
+            try
+            {
+                Volume firstObject = new Volume();
+                Volume secondObject = new Volume();
+                firstObject = secondObject;
+                bool result = object.ReferenceEquals(firstObject, secondObject);
+                Assert.IsTrue(result);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -84,9 +112,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void GivenTwoObjects_WhenTypeChecked_ShouldReturnEqual()
         {
-            double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
-            double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
-            Assert.AreEqual(firstGallonValue.GetType(), secondGallonValue.GetType());
+            try
+            {
+                double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
+                double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.Gallon, 3.0);
+                Assert.AreEqual(firstGallonValue.GetType(), secondGallonValue.GetType());
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -95,9 +130,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0GallonAnd1Gallon_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 0.0);
-            double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+            try
+            {
+                double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 0.0);
+                double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                Assert.AreNotEqual(firstGallonValue, secondGallonValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -106,9 +148,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0LitreAnd0Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
-            double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
-            Assert.AreEqual(firstLitreValue, secondLitreValue);
+            try
+            {
+                double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
+                double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
+                Assert.AreEqual(firstLitreValue, secondLitreValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -117,9 +166,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0LitreAnd1Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
-            double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
-            Assert.AreNotEqual(firstLitreValue, secondLitreValue);
+            try
+            {
+                double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 0.0);
+                double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+                Assert.AreNotEqual(firstLitreValue, secondLitreValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -128,9 +184,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd3Point78Litre_WhenValueChecked_ShouldReturnEqual()
         {
-            double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
-            Assert.AreEqual(gallonValue, litreValue);
+            try
+            {
+                double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
+                Assert.AreEqual(gallonValue, litreValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -139,9 +202,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given0MiliLitreAnd0MiliLitre_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstMiliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
-            double secondMiliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
-            Assert.AreEqual(firstMiliLitreValue, secondMiliLitreValue);
+            try
+            {
+                double firstMiliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
+                double secondMiliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 0.0);
+                Assert.AreEqual(firstMiliLitreValue, secondMiliLitreValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -150,9 +220,16 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1LitreAnd1000MiliLitre_WhenValueChecked_ShouldReturnEqual()
         {
-            double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
-            double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
-            Assert.AreEqual(litreValue, miliLitreValue);
+            try
+            {
+                double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+                double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
+                Assert.AreEqual(litreValue, miliLitreValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -161,11 +238,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1LitreAnd1Litre_WhenAdded_ShouldReturnSum()
         {
-            double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
-            double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
-            double actualValue = this.volume.AddTWoVolumes(firstLitreValue, secondLitreValue);
-            double expectedValue = 2.0;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double firstLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+                double secondLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+                double actualValue = this.volume.AddTWoVolumes(firstLitreValue, secondLitreValue);
+                double expectedValue = 2.0;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -174,11 +258,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd1Gallon_WhenAdded_ShouldReturnSum()
         {
-            double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            double actualValue = this.volume.AddTWoVolumes(firstGallonValue, secondGallonValue);
-            double expectedValue = 7.56;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double firstGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                double secondGallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                double actualValue = this.volume.AddTWoVolumes(firstGallonValue, secondGallonValue);
+                double expectedValue = 7.56;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -187,11 +278,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd3point78Litre_WhenAdded_ShouldReturnSum()
         {
-            double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
-            double actualValue = this.volume.AddTWoVolumes(gallonValue, litreValue);
-            double expectedValue = 7.56;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 3.78);
+                double actualValue = this.volume.AddTWoVolumes(gallonValue, litreValue);
+                double expectedValue = 7.56;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -200,11 +298,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1LitreAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
         {
-            double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
-            double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
-            double actualValue = this.volume.AddTWoVolumes(litreValue, miliLitreValue);
-            double expectedValue = 2.0;
-            Assert.AreEqual(expectedValue, actualValue);
+            try
+            {
+                double litreValue = this.volume.ConvertValueToLitre(Volume.Unit.Litre, 1.0);
+                double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
+                double actualValue = this.volume.AddTWoVolumes(litreValue, miliLitreValue);
+                double expectedValue = 2.0;
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
 
         /// <summary>
@@ -213,11 +318,18 @@ namespace NUnitTestQuantityMeasurement
         [Test]
         public void Given1GallonAnd1000MiliLitre_WhenAdded_ShouldReturnSum()
         {
-            double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
-            double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
-            double actualValue = this.volume.AddTWoVolumes(gallonValue, miliLitreValue);
-            double expectedValue = 4.78;
-            Assert.AreEqual(expectedValue, Math.Round(actualValue, 2));
+            try
+            {
+                double gallonValue = this.volume.ConvertValueToLitre(Volume.Unit.GallonToLitre, 1.0);
+                double miliLitreValue = this.volume.ConvertValueToLitre(Volume.Unit.MiliLitreToLitre, 1000.0);
+                double actualValue = this.volume.AddTWoVolumes(gallonValue, miliLitreValue);
+                double expectedValue = 4.78;
+                Assert.AreEqual(expectedValue, Math.Round(actualValue, 2));
+            }
+            catch (QuantityMeasurementException e)
+            {
+                Assert.AreEqual(QuantityMeasurementException.ExceptionType.InvalidValue, e.type);
+            }
         }
     }
 }

@@ -16,4 +16,11 @@
     <ProjectReference Include="..\QuantityMeasurementProblem\QuantityMeasurementProblem.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="TemperatureTestCases.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
 </Project>
