@@ -1,64 +1,88 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
-using QuantityMeasurementProblem;
+﻿//-----------------------------------------------------------------------
+// <copyright file="TemperatureTestCases.cs" company="BridgeLabz Solution">
+//  Copyright (c) BridgeLabz Solution. All rights reserved.
+// </copyright>
+// <author>Mehboob Shaikh</author>
+//-----------------------------------------------------------------------
+[module: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:FileHeaderFileNameDocumentationMustMatchTypeName", Justification = "Reviewed.")]
 
 namespace NUnitTestQuantityMeasurement
 {
-    class TemperatureTestCases
+    using NUnit.Framework;
+    using QuantityMeasurementProblem;
+
+    /// <summary>
+    /// This class Contains the TestCases to check the functionality of Temperature Class
+    /// </summary>
+    public class TemperatureTestCases
     {
-        private Temperature fahrenheit = null;
-        private Temperature celsius = null;
-       
+        /// <summary>
+        /// Created Reference of Temperature Class to Access it Globally
+        /// </summary>
+        private Temperature temperature = null;
+
+        /// <summary>
+        /// Created the Object of Temperature Class
+        /// </summary>
         [SetUp]
         public void Setup()
         {
-            this.fahrenheit = new Temperature();
-            this.celsius = new Temperature();
+            this.temperature = new Temperature();
         }
 
         /// <summary>
-        /// Given 0 Fahrenheit And 0 Fahrenheit Returns the Equal
+        /// Given 0.0 Fahrenheit And 0.0 Fahrenheit When Value Checked Returns the Equal
         /// </summary>
         [Test]
         public void Given0FahrenheitAnd0Fahrenheit_WhenValueChecked_ShouldReturnsEqual()
         {
-            double firstFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
-            double secondFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+            double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+            double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
             Assert.AreEqual(firstFahrenheitValue, secondFahrenheitValue);
         }
 
+        /// <summary>
+        /// Given 0.0 Fahrenheit And 1.0 Fahrenheit When Value Checked Returns the Not Equal
+        /// </summary>
         [Test]
         public void Given0FahrenheitAnd1Fahrenheit_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
-            double secondFahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 1.0);
+            double firstFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 0.0);
+            double secondFahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Fahrenheit, 1.0);
             Assert.AreNotEqual(firstFahrenheitValue, secondFahrenheitValue);
         }
 
+        /// <summary>
+        /// Given 0.0 Celsius And 0.0 Celsius When Value Checked Returns the Equal
+        /// </summary>
         [Test]
         public void Given0CelsiusAnd0Celsius_WhenValueChecked_ShouldReturnEqual()
         {
-            double firstCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
-            double secondCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+            double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+            double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
             Assert.AreEqual(firstCelsiusValue, secondCelsiusValue);
         }
 
+        /// <summary>
+        /// Given 0.0 Celsius And 1.0 Celsius When Value Checked Returns the Not Equal
+        /// </summary>
         [Test]
         public void Given0CelsiusAnd1Celsius_WhenValueChecked_ShouldReturnNotEqual()
         {
-            double firstCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
-            double secondCelsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
+            double firstCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 0.0);
+            double secondCelsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 1.0);
             Assert.AreNotEqual(firstCelsiusValue, secondCelsiusValue);
         }
 
+        /// <summary>
+        /// Given 212.0 Fahrenheit And 100.0 Celsius When Value Checked Returns the Equal
+        /// </summary>
         [Test]
         public void Given212FahrenheitAnd100Celsius_WhenValueChecked_ShouldReturnEqual()
         {
-            double fahrenheitValue = fahrenheit.ConvertValueToCelsius(Temperature.Unit.FahrenheitToCelsius, 212.0);
-            double celsiusValue = celsius.ConvertValueToCelsius(Temperature.Unit.Celsius, 100.0);
-            Assert.AreNotEqual(fahrenheitValue, celsiusValue);
+            double fahrenheitValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.FahrenheitToCelsius, 212.0);
+            double celsiusValue = this.temperature.ConvertValueToCelsius(Temperature.Unit.Celsius, 100.0);
+            Assert.AreEqual(fahrenheitValue, celsiusValue);
         }
     }
 }
